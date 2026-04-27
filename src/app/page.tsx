@@ -1,20 +1,25 @@
-import { getStaffPicks } from "@/lib/products";
-import { getAllCollections } from "@/lib/collections";
-import { HeroSection } from "@/components/home/HeroSection";
-import { FeaturedProducts } from "@/components/home/FeaturedProducts";
-import { FeaturedCollections } from "@/components/home/FeaturedCollections";
+import type { Metadata } from "next";
+import { getAllProducts } from "@/lib/products";
+import { ProductFilter } from "@/components/products/ProductFilter";
 
 export const revalidate = 60;
 
+export const metadata: Metadata = {
+  title: "Cosas que sí",
+  description: "La vida es demasiado corta como para no rodearse de cosas bonitas. Productos curados, solo lo que merece tu atención.",
+  alternates: { canonical: "https://cosasquesi.com" },
+};
+
 export default async function HomePage() {
-  const staffPicks = await getStaffPicks(6);
-  const collections = getAllCollections();
+  const products = await getAllProducts();
 
   return (
-    <>
-      <HeroSection />
-      <FeaturedProducts products={staffPicks} />
-      <FeaturedCollections collections={collections} />
-    </>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div className="mb-10">
+        <p className="text-sm text-stone mb-1 max-w-lg">La vida es demasiado corta como para no rodearse de cosas bonitas</p>
+        <h1 className="font-serif text-4xl text-ink">Cosas que sí</h1>
+      </div>
+      <ProductFilter products={products} />
+    </div>
   );
 }

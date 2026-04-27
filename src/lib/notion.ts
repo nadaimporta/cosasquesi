@@ -77,16 +77,26 @@ async function mapPageToProduct(page: PageObjectResponse): Promise<Product | nul
 }
 
 export async function fetchAllProducts(): Promise<Product[]> {
-  const response = await notion.databases.query({
-    database_id: DATABASE_ID,
-    filter: { property: "Publicado", checkbox: { equals: true } },
-    sorts: [{ property: "Fecha publicación", direction: "descending" }],
-  });
+  if (!DATABASE_ID || DATABASE_ID === "undefined") {
+    console.warn("NOTION_PRODUCTS_DATABASE_ID is not set");
+    return [];
+  }
 
-  const pages = response.results.filter(
-    (p): p is PageObjectResponse => p.object === "page" && "properties" in p
-  );
+  try {
+    const response = await notion.databases.query({
+      database_id: DATABASE_ID,
+      filter: { property: "Publicado", checkbox: { equals: true } },
+      sorts: [{ property: "Fecha publicación", direction: "descending" }],
+    });
 
-  const products = await Promise.all(pages.map(mapPageToProduct));
-  return products.filter((p): p is Product => p !== null);
+    const pages = response.results.filter(
+      (p): p is PageObjectResponse => p.object === "page" && "properties" in p
+    );
+
+    const products = await Promise.all(pages.map(mapPageToProduct));
+    return products.filter((p): p is Product => p !== null);
+  } catch (error) {
+    console.error("Error fetching products from Notion:", error);
+    return [];
+  }
 }

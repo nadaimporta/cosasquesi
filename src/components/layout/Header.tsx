@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AffiliateDisclosure } from "./AffiliateDisclosure";
 
 const NAV_LINKS = [
-  { href: "/productos", label: "Productos" },
+  { href: "/", label: "Productos" },
   { href: "/colecciones", label: "Colecciones" },
   { href: "/sobre-nosotros", label: "De qué va esto" },
 ];
