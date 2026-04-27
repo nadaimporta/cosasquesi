@@ -20,10 +20,6 @@ export async function getStaffPicks(limit = 6): Promise<Product[]> {
   return products.filter((p) => p.staffPick).slice(0, limit);
 }
 
-export async function getFeaturedProduct(): Promise<Product | undefined> {
-  const products = await fetchAllProducts();
-  return products.find((p) => p.featured);
-}
 
 export async function getProductsByIds(ids: string[]): Promise<Product[]> {
   const products = await fetchAllProducts();
