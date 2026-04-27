@@ -27,7 +27,6 @@ export interface Product {
   amazonAsin: string;
   images: ProductImage[];
   staffPick: boolean;
-  featured: boolean;
   publishedAt: string;
   updatedAt?: string;
 }

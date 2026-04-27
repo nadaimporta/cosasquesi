@@ -71,7 +71,6 @@ async function mapPageToProduct(page: PageObjectResponse): Promise<Product | nul
     amazonAsin: asin,
     images: imageUrl ? [{ src: imageUrl, alt: name }] : [],
     staffPick: getCheckbox(page, "Selección editorial"),
-    featured: getCheckbox(page, "Destacado"),
     publishedAt: getDate(page, "Fecha publicación"),
   };
 }
