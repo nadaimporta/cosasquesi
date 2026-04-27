@@ -1,0 +1,11 @@
+{
+  "id": "comics-que-si",
+  "slug": "comics-que-si",
+  "title": "Cómics que sí",
+  "description": "El cómic es literatura. Estos son los que no puedes no haber leído.",
+  "coverImage": "/collections/comics-que-si.jpg",
+  "publishedAt": "2026-04-27",
+  "productIds": [
+    "pildoras-azules-peeters"
+  ]
+}

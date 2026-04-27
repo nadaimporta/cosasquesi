@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F4F3EE;
+  --foreground: #0A0A0A;
+  --border: #E8E2D9;
+  --muted: #9B9189;
+  --font-geist-sans: "Geist Sans", system-ui, sans-serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  h1, h2 {
+    font-family: var(--font-playfair);
+  }
+}

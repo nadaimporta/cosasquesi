@@ -1,0 +1,11 @@
+{
+  "id": "mis-libros-imprescindibles",
+  "slug": "mis-libros-imprescindibles",
+  "title": "Mis libros imprescindibles",
+  "description": "Los que me han cambiado algo. Los que recomiendo sin que me pregunten. Los que volvería a leer.",
+  "coverImage": "/collections/mis-libros-imprescindibles.jpg",
+  "publishedAt": "2026-04-27",
+  "productIds": [
+    "la-parcela-simon-partal"
+  ]
+}

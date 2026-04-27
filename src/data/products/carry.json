@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bellroy-city-pouch",
+    "slug": "bellroy-city-pouch",
+    "brand": "Bellroy",
+    "name": "City Pouch",
+    "description": "Neceser de cuero premium para el día a día. Cabe un iPad mini, cables, cartera y todo lo imprescindible sin parecer una mochila.",
+    "category": "carry",
+    "tags": ["cuero", "edc", "bolso"],
+    "price": 89,
+    "currency": "EUR",
+    "amazonAsin": "B07S4GVTJW",
+    "images": [
+      {
+        "src": "https://m.media-amazon.com/images/I/81D5QECLjPL._AC_SL1500_.jpg",
+        "alt": "Bellroy City Pouch cuero negro"
+      }
+    ],
+    "staffPick": true,
+    "featured": false,
+    "publishedAt": "2026-04-05"
+  }
+]
