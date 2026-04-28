@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getAllProducts } from "@/lib/products";
 import { ProductFilter } from "@/components/products/ProductFilter";
 
@@ -19,7 +20,9 @@ export default async function HomePage() {
         <p className="text-sm text-stone mb-1 max-w-lg">La vida es demasiado corta como para no rodearse de cosas bonitas</p>
         <h1 className="font-serif text-4xl text-ink">Cosas que sí</h1>
       </div>
-      <ProductFilter products={products} />
+      <Suspense>
+        <ProductFilter products={products} />
+      </Suspense>
     </div>
   );
 }
