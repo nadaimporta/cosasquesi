@@ -9,7 +9,7 @@ export const CATEGORIES: Record<Category, string> = {
   comics: "Cómics",
   lifestyle: "Lifestyle",
   relojes: "Relojes",
-  viaje: "Viaje",
+  viaje: "Viajar",
 };
 
 export const CATEGORY_SLUGS = Object.keys(CATEGORIES) as Category[];
