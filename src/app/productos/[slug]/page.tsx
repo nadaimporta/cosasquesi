@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProducts, getProductBySlug } from "@/lib/products";
-import { buildAffiliateUrl } from "@/lib/affiliate";
+import { resolveProductUrl } from "@/lib/affiliate";
 import { formatPrice } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/categories";
 import { StaffPickBadge } from "@/components/products/StaffPickBadge";
@@ -38,7 +38,8 @@ export default async function ProductoPage({ params }: Props) {
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const affiliateUrl = buildAffiliateUrl(product.amazonAsin);
+  const productUrl = resolveProductUrl(product);
+  const isAmazon = !!product.amazonAsin;
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
@@ -93,17 +94,19 @@ export default async function ProductoPage({ params }: Props) {
           )}
 
           <ExternalLink
-            href={affiliateUrl}
-            label={`Comprar ${product.brand} ${product.name} en Amazon (enlace de afiliado)`}
+            href={productUrl}
+            label={`Comprar ${product.brand} ${product.name}${isAmazon ? " en Amazon (enlace de afiliado)" : ""}`}
             className="mt-4 py-4 text-sm font-medium tracking-widest uppercase text-center bg-ink text-cream hover:opacity-80 transition-opacity"
           >
-            Comprar en Amazon
+            {isAmazon ? "Comprar en Amazon" : "Comprar"}
           </ExternalLink>
 
-          <p className="text-[11px] text-stone">
-            Enlace de afiliado. El precio puede variar.{" "}
-            <Link href="/aviso-legal" className="underline">Más información</Link>
-          </p>
+          {isAmazon && (
+            <p className="text-[11px] text-stone">
+              Enlace de afiliado. El precio puede variar.{" "}
+              <Link href="/aviso-legal" className="underline">Más información</Link>
+            </p>
+          )}
         </div>
       </div>
     </div>

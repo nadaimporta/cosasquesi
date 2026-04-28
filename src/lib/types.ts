@@ -7,7 +7,9 @@ export type Category =
   | "comics"
   | "lifestyle"
   | "relojes"
-  | "viaje";
+  | "viaje"
+  | "moda"
+  | "hedonismos";
 
 export interface ProductImage {
   src: string;
@@ -24,7 +26,8 @@ export interface Product {
   tags: string[];
   price: number;
   currency: string;
-  amazonAsin: string;
+  amazonAsin?: string;
+  url?: string;
   images: ProductImage[];
   staffPick: boolean;
   publishedAt: string;
