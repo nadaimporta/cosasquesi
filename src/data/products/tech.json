@@ -1,5 +1,26 @@
 [
   {
+    "id": "sony-alpha-6400",
+    "slug": "sony-alpha-6400",
+    "brand": "Sony",
+    "name": "Alpha 6400 (cuerpo)",
+    "description": "Cámara mirrorless APS-C de 24,2 MP con autoenfoque en tiempo real, seguimiento de ojos y vídeo 4K. Compacta, rápida y con una calidad de imagen que no deja indiferente.",
+    "category": "tech",
+    "tags": ["camara", "mirrorless", "sony", "fotografia", "aps-c"],
+    "price": 889.10,
+    "currency": "EUR",
+    "amazonAsin": "B0DPN81YLD",
+    "images": [
+      {
+        "src": "https://m.media-amazon.com/images/I/71T6LBVGPBL._AC_SL1500_.jpg",
+        "alt": "Sony Alpha 6400 cámara mirrorless cuerpo"
+      }
+    ],
+    "staffPick": true,
+    "featured": false,
+    "publishedAt": "2026-04-28"
+  },
+  {
     "id": "apple-airpods-pro-2",
     "slug": "apple-airpods-pro-2",
     "brand": "Apple",
