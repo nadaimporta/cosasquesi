@@ -12,10 +12,9 @@ export default function SobreNosotrosPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
       <div className="max-w-2xl">
         <p className="text-xs uppercase tracking-widest text-stone mb-4">Los porqués</p>
-        <h1 className="font-serif text-5xl text-ink leading-tight mb-4">
+        <h1 className="font-serif text-5xl text-ink leading-tight mb-10">
           De qué va esto
         </h1>
-        <p className="text-base text-stone leading-relaxed mb-10">La vida es demasiado corta como para no rodearse de cosas bonitas.</p>
 
         <div className="flex flex-col gap-6 text-base text-stone leading-relaxed">
           <p>
