@@ -11,8 +11,7 @@ export function HeroSection() {
           Lo mejor,<br />sin el ruido.
         </h1>
         <p className="text-base text-stone leading-relaxed mb-8 max-w-md">
-          Productos cuidadosamente elegidos que merecen un sitio en tu vida.
-          Solo incluimos lo que usamos, confiamos o vemos un valor real.
+          La vida es demasiado corta como para no rodearse de cosas bonitas.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link

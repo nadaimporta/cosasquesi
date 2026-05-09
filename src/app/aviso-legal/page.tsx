@@ -17,15 +17,19 @@ export default function AvisoLegalPage() {
           <section>
             <h2 className="font-serif text-xl text-ink mb-3">Programa de Afiliados de Amazon</h2>
             <p>
-              cosasquesi.com es participante del Programa de Afiliados de Amazon EU, un programa
-              de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener
-              comisiones por publicidad, mediante la creación de enlaces a Amazon.es.
+              Algunos de los productos que aparecen en cosasquesi.com (no todos) forman parte
+              del Programa de Afiliados de Amazon EU, un programa de publicidad diseñado para
+              ofrecer a sitios web un modo de obtener comisiones por publicidad mediante la
+              creación de enlaces a Amazon.es.
             </p>
             <p className="mt-3">
-              Esto significa que si haces clic en un enlace marcado con el aviso de afiliado y
-              realizas una compra en Amazon, podemos recibir una comisión sin ningún coste
-              adicional para ti. El precio que ves en Amazon es siempre el mismo, seas o no
-              referido desde este sitio.
+              Esto significa que si haces clic en uno de esos enlaces y realizas una compra en
+              Amazon, podemos recibir una pequeña comisión sin ningún coste adicional para ti.
+              El precio que ves en Amazon es siempre el mismo, seas o no referido desde este sitio.
+            </p>
+            <p className="mt-3">
+              Los productos que no tienen enlace a Amazon no están sujetos a ningún programa
+              de afiliados y aparecen aquí simplemente porque me gustan.
             </p>
           </section>
 
@@ -56,10 +60,10 @@ export default function AvisoLegalPage() {
             <p>
               Para cualquier consulta relacionada con este aviso legal, puedes contactarnos en:{" "}
               <a
-                href="mailto:hola@cosasquesi.com"
+                href="mailto:no@nadaimporta.com"
                 className="text-ink underline hover:opacity-70 transition-opacity"
               >
-                hola@cosasquesi.com
+                no@nadaimporta.com
               </a>
             </p>
           </section>

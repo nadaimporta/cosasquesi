@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-col gap-1">
           <span className="font-serif text-base text-ink">Cosas que sí</span>
           <p className="text-xs text-stone">
-            Productos cuidadosamente seleccionados. Sin ruido, solo lo bueno.
+            La vida es demasiado corta como para no rodearse de cosas bonitas.
           </p>
         </div>
 
@@ -27,17 +27,7 @@ export function Footer() {
         </nav>
       </div>
 
-      <div className="border-t border-mist">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-          <p className="text-[11px] text-stone">
-            Como participante del Programa de Afiliados de Amazon, obtenemos ingresos por compras adscritas.
-            Los precios pueden variar.{" "}
-            <Link href="/aviso-legal" className="underline hover:text-ink transition-colors">
-              Aviso legal
-            </Link>
-          </p>
-        </div>
-      </div>
+
     </footer>
   );
 }
