@@ -68,9 +68,10 @@ async function mapPageToProduct(page: PageObjectResponse): Promise<Product | nul
     tags: getMultiSelect(page, "Tags"),
     price: getNumber(page, "Precio"),
     currency: "EUR",
-    amazonAsin: asin,
+    amazonAsin: asin || undefined,
+    url: getText(page, "URL") || undefined,
     images: imageUrl ? [{ src: imageUrl, alt: name }] : [],
-    staffPick: getCheckbox(page, "Selección editorial"),
+    staffPick: getCheckbox(page, "Me flipa"),
     publishedAt: getDate(page, "Fecha publicación"),
   };
 }
