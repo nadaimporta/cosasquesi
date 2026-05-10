@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Cosas que sí",
   },
   description:
-    "Productos cuidadosamente seleccionados. Sin ruido, solo lo bueno.",
+    "La vida es demasiado corta como para no rodearse de cosas bonitas.",
   metadataBase: new URL("https://cosasquesi.com"),
   openGraph: {
     siteName: "Cosas que sí",
