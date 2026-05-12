@@ -28,11 +28,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://cosasquesi.com"),
   openGraph: {
     siteName: "Cosas que sí",
+    description: "Productos cuidadosamente seleccionados. Sin ruido, solo lo bueno.",
     locale: "es_ES",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    description: "Productos cuidadosamente seleccionados. Sin ruido, solo lo bueno.",
   },
   alternates: {
     canonical: "https://cosasquesi.com",
