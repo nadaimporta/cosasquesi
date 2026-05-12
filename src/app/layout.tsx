@@ -31,12 +31,12 @@ export const metadata: Metadata = {
     siteName: "Cosas que sí",
     locale: "es_ES",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/og-image@2x.jpg", width: 2400, height: 1260 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Cosas que sí — La vida es demasiado corta como para no rodearse de cosas bonitas",
-    images: ["/og-image.jpg"],
+    images: ["/og-image@2x.jpg"],
   },
   alternates: {
     canonical: "https://cosasquesi.com",
