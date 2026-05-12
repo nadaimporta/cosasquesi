@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     "La vida es demasiado corta como para no rodearse de cosas bonitas.",
   metadataBase: new URL("https://cosasquesi.com"),
   openGraph: {
+    title: "Cosas que sí — La vida es demasiado corta como para no rodearse de cosas bonitas",
     siteName: "Cosas que sí",
     locale: "es_ES",
     type: "website",
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "Cosas que sí — La vida es demasiado corta como para no rodearse de cosas bonitas",
     images: ["/og-image.jpg"],
   },
   alternates: {
