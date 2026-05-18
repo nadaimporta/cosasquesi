@@ -7,7 +7,8 @@ export async function fetchAmazonImage(asin: string, market = "es"): Promise<str
         "Accept-Language": "es-ES,es;q=0.9",
         Accept: "text/html,application/xhtml+xml",
       },
-      next: { revalidate: 86400 }, // cache 24h
+      signal: AbortSignal.timeout(5000),
+      next: { revalidate: 86400 },
     });
 
     const html = await res.text();
