@@ -3,6 +3,7 @@ import { Playfair_Display } from "next/font/google";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
+import { ClickSound } from "@/components/ui/ClickSound";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${playfair.variable} ${geist.variable}`}>
       <body className="bg-cream text-ink antialiased">
+        <ClickSound />
         <Header />
         <main>{children}</main>
         <Footer />
