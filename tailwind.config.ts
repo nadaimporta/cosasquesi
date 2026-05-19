@@ -9,6 +9,7 @@ const config: Config = {
         ink: "#0A0A0A",
         mist: "#E8E2D9",
         stone: "#9B9189",
+        pebble: "#6B6560",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],

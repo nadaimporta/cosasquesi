@@ -25,6 +25,7 @@ export interface Product {
   category: Category;
   tags: string[];
   price: number;
+  originalPrice?: number;
   currency: string;
   amazonAsin?: string;
   url?: string;

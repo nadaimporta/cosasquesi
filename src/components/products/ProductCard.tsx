@@ -27,12 +27,12 @@ export function ProductCard({ product }: ProductCardProps) {
       >
         {product.images[0] && (
           <Image
-            src={product.images[0].src}
-            alt={product.images[0].alt}
-            fill
-            className={`object-contain transition-transform duration-300 group-hover:scale-105 ${product.slug === "zubi-pouch-sotogrande" ? "p-10 object-center" : product.slug === "marvis-classic-strong-mint" ? "p-[20%]" : product.slug === "logitech-mx-master-4" ? "p-[20%]" : product.slug === "fujifilm-x100vi" ? "p-[15%]" : product.slug === "apple-airpods-pro-3" ? "p-[20%]" : product.slug === "the-koln-concert-keith-jarrett" ? "p-[15%]" : "p-10"}`}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+              src={product.images[0].src}
+              alt={product.images[0].alt}
+              fill
+              className={`object-contain transition-transform duration-300 group-hover:scale-105 ${product.slug === "zubi-pouch-sotogrande" ? "p-10 object-center" : product.slug === "marvis-classic-strong-mint" ? "p-[20%]" : product.slug === "logitech-mx-master-4" ? "p-[20%]" : product.slug === "fujifilm-x100vi" ? "p-[15%]" : product.slug === "apple-airpods-pro-3" ? "p-[20%]" : product.slug === "the-koln-concert-keith-jarrett" ? "p-[15%]" : product.slug === "alessi-tetera-9093" ? "p-[15%]" : "p-10"}`}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
         )}
         {product.staffPick && (
           <div className="absolute top-3 left-3">
@@ -50,9 +50,16 @@ export function ProductCard({ product }: ProductCardProps) {
           >
             {CATEGORIES[product.category]}
           </Link>
-          <span className="text-sm font-medium text-ink">
-            {formatPrice(product.price, product.currency)}
-          </span>
+          <div className="flex items-center gap-1.5">
+            {product.originalPrice && (
+              <span className="text-[11px] text-stone line-through">
+                {formatPrice(product.originalPrice, product.currency)}
+              </span>
+            )}
+            <span className="text-sm font-medium text-ink">
+              {formatPrice(product.price, product.currency)}
+            </span>
+          </div>
         </div>
 
         <a
@@ -61,7 +68,7 @@ export function ProductCard({ product }: ProductCardProps) {
           rel="noopener noreferrer sponsored"
           className="text-sm font-medium text-ink leading-snug hover:opacity-70 transition-opacity"
         >
-          <span className="text-stone text-[11px] uppercase tracking-wider mr-1">
+          <span className="text-stone text-[11px] uppercase tracking-widest mr-1">
             {product.brand}
           </span>
           {product.name}

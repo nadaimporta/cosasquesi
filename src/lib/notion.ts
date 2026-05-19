@@ -67,6 +67,7 @@ async function mapPageToProduct(page: PageObjectResponse): Promise<Product | nul
     category: getSelect(page, "Categoría") as Category,
     tags: getMultiSelect(page, "Tags"),
     price: getNumber(page, "Precio"),
+    originalPrice: getNumber(page, "Precio original") || undefined,
     currency: "EUR",
     amazonAsin: asin || undefined,
     url: getText(page, "URL") || undefined,
