@@ -60,7 +60,7 @@ export default async function ProductoPage({ params }: Props) {
               src={product.images[0].src}
               alt={product.images[0].alt}
               fill
-              className={`object-contain ${product.slug === "marvis-classic-strong-mint" ? "p-[20%]" : product.slug === "logitech-mx-master-4" ? "p-[20%]" : product.slug === "fujifilm-x100vi" ? "p-[15%]" : product.slug === "apple-airpods-pro-3" ? "p-[20%]" : product.slug === "alessi-tetera-9093" ? "p-[15%]" : product.slug === "stanley-termo-cafe-go" ? "p-[20%]" : product.slug === "normann-krenit-skal" ? "p-[40%]" : "p-10"}`}
+              className={`object-contain ${product.slug === "marvis-classic-strong-mint" ? "p-[20%]" : product.slug === "logitech-mx-master-4" ? "p-[20%]" : product.slug === "fujifilm-x100vi" ? "p-[15%]" : product.slug === "apple-airpods-pro-3" ? "p-[20%]" : product.slug === "alessi-tetera-9093" ? "p-[15%]" : product.slug === "stanley-termo-cafe-go" ? "p-[20%]" : product.slug === "normann-krenit-skal" ? "p-[25%]" : "p-10"}`}
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
