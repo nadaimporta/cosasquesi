@@ -25,3 +25,11 @@ export async function getProductsByIds(ids: string[]): Promise<Product[]> {
   const products = await fetchAllProducts();
   return ids.map((id) => products.find((p) => p.id === id || p.slug === id)).filter(Boolean) as Product[];
 }
+
+export async function getRelatedProducts(product: Product, limit = 3): Promise<Product[]> {
+  const products = await fetchAllProducts();
+  const others = products.filter((p) => p.id !== product.id);
+  const sameCategory = others.filter((p) => p.category === product.category);
+  const rest = others.filter((p) => p.category !== product.category);
+  return [...sameCategory, ...rest].slice(0, limit);
+}

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/types";
-import { resolveProductUrl } from "@/lib/affiliate";
 import { formatPrice } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/categories";
 import { StaffPickBadge } from "./StaffPickBadge";
@@ -13,16 +12,14 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const affiliateUrl = resolveProductUrl(product);
+  const detailUrl = `/productos/${product.slug}`;
 
   return (
     <article className="group flex flex-col gap-4">
       {/* Image */}
-      <a
-        href={affiliateUrl}
-        target="_blank"
-        rel="noopener noreferrer sponsored"
-        aria-label={`Comprar ${product.brand} ${product.name} en Amazon (enlace de afiliado)`}
+      <Link
+        href={detailUrl}
+        aria-label={`Ver ${product.brand} ${product.name}`}
         className="relative aspect-square bg-white overflow-hidden rounded-2xl block"
       >
         {product.images[0] && (
@@ -39,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <StaffPickBadge />
           </div>
         )}
-      </a>
+      </Link>
 
       {/* Meta */}
       <div className="flex flex-col gap-1">
@@ -62,17 +59,15 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <a
-          href={affiliateUrl}
-          target="_blank"
-          rel="noopener noreferrer sponsored"
+        <Link
+          href={detailUrl}
           className="text-sm font-medium text-ink leading-snug hover:opacity-70 transition-opacity"
         >
           <span className="text-stone text-[11px] uppercase tracking-widest mr-1">
             {product.brand}
           </span>
           {product.name}
-        </a>
+        </Link>
       </div>
     </article>
   );

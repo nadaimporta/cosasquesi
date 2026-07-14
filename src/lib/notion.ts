@@ -64,6 +64,7 @@ async function mapPageToProduct(page: PageObjectResponse): Promise<Product | nul
     brand: getText(page, "Marca"),
     name,
     description: getText(page, "Descripción"),
+    subtitle: getText(page, "Subtitular") || undefined,
     category: getSelect(page, "Categoría") as Category,
     tags: getMultiSelect(page, "Tags"),
     price: getNumber(page, "Precio"),

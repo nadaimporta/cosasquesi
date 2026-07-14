@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllProducts, getProductBySlug } from "@/lib/products";
+import { getAllProducts, getProductBySlug, getRelatedProducts } from "@/lib/products";
 import { resolveProductUrl } from "@/lib/affiliate";
 import { formatPrice } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/categories";
 import { StaffPickBadge } from "@/components/products/StaffPickBadge";
+import { ProductGrid } from "@/components/products/ProductGrid";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Badge } from "@/components/ui/Badge";
 
@@ -40,6 +41,7 @@ export default async function ProductoPage({ params }: Props) {
 
   const productUrl = resolveProductUrl(product);
   const isAmazon = !!product.amazonAsin;
+  const related = await getRelatedProducts(product);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
@@ -76,23 +78,30 @@ export default async function ProductoPage({ params }: Props) {
 
         <div className="flex flex-col gap-6">
           <div>
-            <Link href={`/categorias/${product.category}`} className="text-xs uppercase tracking-widest text-stone hover:text-ink transition-colors">
-              {CATEGORIES[product.category]}
-            </Link>
-            <p className="text-xs uppercase tracking-widest text-stone mt-1">{product.brand}</p>
-            <h1 className="font-serif text-3xl sm:text-4xl text-ink mt-2 leading-snug">{product.name}</h1>
+            <div className="flex items-center gap-1.5 text-xs uppercase tracking-widest text-stone">
+              <Link href={`/categorias/${product.category}`} className="hover:text-ink transition-colors">
+                {CATEGORIES[product.category]}
+              </Link>
+              <span aria-hidden>·</span>
+              <span>{product.brand}</span>
+            </div>
+            <div className="flex items-baseline justify-between gap-4 mt-2">
+              <h1 className="font-serif text-4xl sm:text-5xl text-ink leading-snug text-balance">{product.name}</h1>
+              <div className="flex items-baseline gap-1.5 shrink-0">
+                {product.originalPrice && (
+                  <span className="text-xs text-stone line-through">
+                    {formatPrice(product.originalPrice, product.currency)}
+                  </span>
+                )}
+                <span className="text-sm text-pebble whitespace-nowrap">{formatPrice(product.price, product.currency)}</span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-baseline gap-2">
-            {product.originalPrice && (
-              <span className="text-base text-stone line-through">
-                {formatPrice(product.originalPrice, product.currency)}
-              </span>
-            )}
-            <p className="text-2xl font-medium text-ink">{formatPrice(product.price, product.currency)}</p>
-          </div>
-
-          <p className="text-base text-stone leading-relaxed">{product.description}</p>
+          {product.subtitle && (
+            <p className="font-serif italic text-lg text-ink leading-snug">{product.subtitle}</p>
+          )}
+          <p className="text-base text-stone leading-relaxed max-w-[46ch]">{product.description}</p>
 
           {product.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
@@ -100,22 +109,37 @@ export default async function ProductoPage({ params }: Props) {
             </div>
           )}
 
-          <ExternalLink
-            href={productUrl}
-            label={`Comprar ${product.brand} ${product.name}${isAmazon ? " en Amazon (enlace de afiliado)" : ""}`}
-            className="mt-4 py-4 text-sm font-medium tracking-widest uppercase text-center bg-ink text-cream hover:opacity-80 transition-opacity"
-          >
-            {isAmazon ? "Comprar en Amazon" : "Comprar"}
-          </ExternalLink>
+          <hr className="border-mist mt-2" />
+
+          <div className="flex items-center gap-4">
+            <ExternalLink
+              href={productUrl}
+              label={`Comprar ${product.brand} ${product.name}${isAmazon ? " en Amazon (enlace de afiliado)" : ""}`}
+              className="self-start px-8 py-2.5 text-sm font-medium tracking-widest uppercase text-center bg-ink text-cream hover:opacity-80 transition-opacity"
+            >
+              Comprar
+            </ExternalLink>
+            {isAmazon && (
+              <span className="text-xs text-stone">en Amazon · enlace de afiliado</span>
+            )}
+          </div>
 
           {isAmazon && (
-            <p className="text-[11px] text-stone">
-              Enlace de afiliado. El precio puede variar.{" "}
+            <p className="text-[11px] text-stone -mt-3">
+              El precio puede variar.{" "}
               <Link href="/aviso-legal" className="underline">Más información</Link>
             </p>
           )}
         </div>
       </div>
+
+      {related.length > 0 && (
+        <div className="mt-24">
+          <hr className="border-mist mb-10" />
+          <p className="text-xs uppercase tracking-widest text-stone mb-8">También te puede interesar</p>
+          <ProductGrid products={related} />
+        </div>
+      )}
     </div>
   );
 }
