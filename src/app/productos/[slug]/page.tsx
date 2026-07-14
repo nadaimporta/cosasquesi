@@ -43,8 +43,29 @@ export default async function ProductoPage({ params }: Props) {
   const isAmazon = !!product.amazonAsin;
   const related = await getRelatedProducts(product);
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: product.images.map((image) => image.src),
+    brand: { "@type": "Brand", name: product.brand },
+    ...(product.amazonAsin ? { sku: product.amazonAsin } : {}),
+    offers: {
+      "@type": "Offer",
+      url: productUrl,
+      priceCurrency: product.currency,
+      price: product.price,
+    },
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, "\\u003c") }}
+      />
+
       <nav className="flex items-center gap-2 text-xs text-stone mb-10">
         <Link href="/productos" className="hover:text-ink transition-colors">Productos</Link>
         <span>/</span>
