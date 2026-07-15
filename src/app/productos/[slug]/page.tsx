@@ -126,7 +126,13 @@ export default async function ProductoPage({ params }: Props) {
 
           {product.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {product.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
+              {product.tags.map((tag) => (
+                <Link key={tag} href={`/tags/${tag}`}>
+                  <Badge className="hover:border-ink hover:text-ink transition-colors cursor-pointer">
+                    {tag}
+                  </Badge>
+                </Link>
+              ))}
             </div>
           )}
 
