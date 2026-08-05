@@ -77,7 +77,7 @@ export default async function ProductoPage({ params }: Props) {
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div className={`relative aspect-square rounded-2xl overflow-hidden ${product.slug === "acne-studios-par-frederic-malle" ? "bg-mist" : "bg-white"}`}>
+        <div className="relative aspect-square bg-white rounded-2xl overflow-hidden">
           {product.images[0] ? (
             <Image
               src={product.images[0].src}

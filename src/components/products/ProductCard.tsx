@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <Link
         href={detailUrl}
         aria-label={`Ver ${product.brand} ${product.name}`}
-        className={`relative aspect-square overflow-hidden rounded-2xl block ${product.slug === "acne-studios-par-frederic-malle" ? "bg-mist" : "bg-white"}`}
+        className="relative aspect-square bg-white overflow-hidden rounded-2xl block"
       >
         {product.images[0] && (
           <Image
