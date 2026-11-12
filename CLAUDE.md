@@ -63,7 +63,8 @@ src/
    - Imagen URL (URL — si se deja vacía, intenta scrapearse de Amazon via ASIN)
    - Publicado (checkbox — solo aparece en la web si está marcado)
    - Me flipa (checkbox — aparece en homepage con badge especial)
-   - Fecha publicación (fecha)
+   - Fecha publicación (fecha) — define el orden: los más recientes salen
+     primero. Rellenarla siempre; sin fecha, el producto sale al final.
 
 3. En cada request, Next.js llama a Notion via su SDK oficial y mapea los
    datos al tipo `Product`. Solo se devuelven los que tienen `Publicado = true`.
