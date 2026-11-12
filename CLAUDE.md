@@ -97,7 +97,7 @@ Archivo: `.env.local` (no se sube a git)
 ```
 NOTION_API_KEY=secret_...          # API key de la integración de Notion
 NOTION_PRODUCTS_DATABASE_ID=...    # ID de la base de datos de productos
-AMAZON_AFFILIATE_TAG=cosasquesi-21 # tag de afiliado Amazon
+NEXT_PUBLIC_AMAZON_AFFILIATE_TAG=cosasquesi-21 # tag de afiliado Amazon
 ```
 
 En Vercel estas variables están configuradas en el panel del proyecto.
@@ -139,6 +139,14 @@ En Vercel estas variables están configuradas en el panel del proyecto.
 - GitHub: control de versiones del código
 - Vercel: hosting y despliegue continuo
 - Claude (FleetView): asistente para añadir productos y hacer cambios
+
+## Trabajo entre dos equipos (Lobo y Playa)
+
+Los hilos de Claude no se comparten entre Macs; GitHub sí.
+
+- Pull al empezar.
+- Commit y push para acabar.
+- Las claves (`.env.local`) no viajan por GitHub: se copian a mano a cada Mac.
 
 ## Notas
 
